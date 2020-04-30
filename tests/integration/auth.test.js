@@ -8,7 +8,7 @@ describe('auth middleware', () => {
   afterEach(async() => {
     
     await Genre.remove({});
-    server.close();
+    await server.close();
   });
   let token;
   const exec = () => {
@@ -37,6 +37,6 @@ describe('auth middleware', () => {
   it('should return 200 if  token is valid', async () => {
     
     const res = await exec();
-    //expect(res.status).toBe(200);
+    expect(res.status).toBe(200);
   });
 });
